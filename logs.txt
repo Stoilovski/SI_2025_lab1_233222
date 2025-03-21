@@ -1,0 +1,20 @@
+PC@DESKTOP-DGJG9PF MINGW64 ~/Desktop/SI_2025_lab1_233222 (master)
+$ git log --oneline --graph --all
+*   a384e2e (HEAD -> master, origin/master, origin/HEAD) Merge pull request #12 from Stoilovski/7-count-tasks-per-category
+|\
+| * 4707d1a (origin/7-count-tasks-per-category, 7-count-tasks-per-category) third-issue-completed
+* |   5451bad Merge pull request #11 from Stoilovski/4-sort-tasks-by-priority
+|\ \
+| * | 3c0c5a2 (origin/4-sort-tasks-by-priority, 4-sort-tasks-by-priority) second-issue-completed
+| |/
+* | 2a5ffdd Update README.md
+* |   616c963 Merge pull request #10 from Stoilovski/1-remove-a-task-by-name
+|\ \
+| |/
+|/|
+| | * a1ca22b (1-remove-a-task-by-name) first-issue-completed
+| |/
+| * 1107ef9 (origin/1-remove-a-task-by-name) first-issue-completed
+|/
+* 80e1de8 Add starter code
+* 21998d6 first commit
