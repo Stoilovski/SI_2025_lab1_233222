@@ -1,11 +1,30 @@
+*/ За чекорите 20 и 22.
+За трите гранки што ги креирав, прво ја променив првата локално, ја пушнав на далечниот
+репозиториум и ги merge-нав со мастер, и потоа веднаш синхронизирав далечниот репозиториум
+со локалниот. После тоа преминав на втората гранка, локално промените што ги извршив
+на неа, пак ја пушнав и ги merge-нав на далечниот репозиториум. И истото после го направив
+и за третата гранка.
+Т.е едно по едно ги правев и ги синхронизирав. Проблеми за merge-ање немав.
+/*
+
+*/ 
+$ git init - Иницијализира нов Git репозиториум во тековниот директориум.
+$ git remote add origin https://github.com/... - Додава далечински (remote) репозиториум со име origin, кој се наоѓа на GitHub. Ова овозможува синхронизација со тој репозиториум.
+$ git add . -Ги додава сите промени (нови, изменети или избришани фајлови) во индексот на Git за наредниот commit.
+$ git commit -m "first commit" - Ги зачувува (commits) промените во локалната ризница со порака "first commit".
+$ git config --global user.email "you@example.com" - Ја поставува глобалната е-пошта што Git ќе ја користи за идентификација на авторот на комитите.
+$ git config --global user.name "Your Name" - Го поставува глобалното корисничко име што ќе се поврзува со комитите.
+$ git fetch origin master - Ги презема најновите промени од гранката master на origin (далечински репозиториум), но не ги спојува во локалниот код.
+$ git checkout master - Ја менува тековната гранка во master. Ако веќе сте на master, оваа наредба нема ефект.
+$ git pull origin master - Ги презема и ги спојува (merge) најновите промени од master гранката на далечинскиот репозиториум во вашата локална master гранка.
+$ git push origin master - Ги испраќа (push) локалните промени од master гранката кон далечинскиот репозиториум на GitHub.
+$ git clone https://github.com/... - Го копира (клонира) целиот репозиториум од GitHub во нов локален директориум, овозможувајќи работа на кодот локално.
+/*
+
+
 PC@DESKTOP-DGJG9PF MINGW64 ~/Desktop/SI_2025_lab1_233222
 $ git init
-Initialized empty Git repository in C:/Users/PC/Desktop/SI_2025_lab1_233222/.git
-/
-
-PC@DESKTOP-DGJG9PF MINGW64 ~/Desktop/SI_2025_lab1_233222 (master)
-$ ^[[200~
-bash: $'\E[200~': command not found
+Initialized empty Git repository in C:/Users/PC/Desktop/SI_2025_lab1_233222/.git/
 
 PC@DESKTOP-DGJG9PF MINGW64 ~/Desktop/SI_2025_lab1_233222 (master)
 $ git remote add origin https://github.com/Stoilovski/SI_2025_lab1_233222.git
@@ -460,3 +479,65 @@ $ git log --oneline --graph --all
 |/
 * 80e1de8 Add starter code
 * 21998d6 first commit
+
+
+PC@DESKTOP-DGJG9PF MINGW64 ~/Desktop/SI_2025_lab1_233222 (master)
+$ git clone https://github.com/Stoilovski/SI_2025_lab1_151020.git
+Cloning into 'SI_2025_lab1_151020'...
+remote: Enumerating objects: 26, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 26 (delta 1), reused 0 (delta 0), pack-reused 23 (from 1)
+Receiving objects: 100% (26/26), 5.56 KiB | 1.85 MiB/s, done.
+Resolving deltas: 100% (7/7), done.
+
+PC@DESKTOP-DGJG9PF MINGW64 ~/Desktop/SI_2025_lab1_233222 (master)
+$ cd SI_2025_lab1_151020
+
+PC@DESKTOP-DGJG9PF MINGW64 ~/Desktop/SI_2025_lab1_233222/SI_2025_lab1_151020 (master)
+$ nano
+
+PC@DESKTOP-DGJG9PF MINGW64 ~/Desktop/SI_2025_lab1_233222/SI_2025_lab1_151020 (master)
+$ git add .
+warning: in the working copy of '233222.txt', LF will be replaced by CRLF the next time Git touche
+s it
+
+PC@DESKTOP-DGJG9PF MINGW64 ~/Desktop/SI_2025_lab1_233222/SI_2025_lab1_151020 (master)
+$ git commit -m "Add file"
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'PC@DESKTOP-DGJG9PF.(none)')
+
+PC@DESKTOP-DGJG9PF MINGW64 ~/Desktop/SI_2025_lab1_233222/SI_2025_lab1_151020 (master)
+$ git config user.email "david.stoilovski@students.finki.ukim.mk"
+
+PC@DESKTOP-DGJG9PF MINGW64 ~/Desktop/SI_2025_lab1_233222/SI_2025_lab1_151020 (master)
+$ git config user.name "Stoilovski"
+
+PC@DESKTOP-DGJG9PF MINGW64 ~/Desktop/SI_2025_lab1_233222/SI_2025_lab1_151020 (master)
+$ git commit -m "Add file"
+[master 387dde5] Add file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 233222.txt
+
+PC@DESKTOP-DGJG9PF MINGW64 ~/Desktop/SI_2025_lab1_233222/SI_2025_lab1_151020 (master)
+$ git push origin master
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 6 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 301 bytes | 301.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/Stoilovski/SI_2025_lab1_151020.git
+   bb2576c..387dde5  master -> master
